@@ -15,3 +15,12 @@ def toggle_task(request, task_id):
     task.done = not task.done
     task.save()
     return redirect('task_list')
+
+def delete_task_confirm(request, task_id):
+    task =  Task.objects.get(id=task_id)
+    return render(request, 'tasks/delete_confrim.html', {'task': task})
+
+def delete_task(request, task_id):
+    task = Task.objects.get(id=task_id)
+    task.delete()
+    return redirect(task_list)

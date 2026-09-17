@@ -22,6 +22,7 @@
                 {% else %}
                     <a href="{% url 'toggle_task' task.id %}">[Выполнить]</a>
                 {%endif%}
+                <a href="{% url 'delete_task_confirm' task.id %}">[Удалить]</a>
             </li>
         {%endfor%}
     </ul>
