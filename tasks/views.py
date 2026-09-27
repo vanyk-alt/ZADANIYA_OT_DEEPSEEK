@@ -4,8 +4,10 @@ from .models import Task
 def task_list(request):
     if request.method == "POST":
         title = request.POST.get('title')
+        description = request.POST.get('description', '')
+
         if title:
-            Task.objects.create(title=title)
+            Task.objects.create(title=title, description=description)
             return redirect('task_list')
     tasks = Task.objects.all()
     return render(request, 'tasks/task_list.html', {'tasks': tasks})
