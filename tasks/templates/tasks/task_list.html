@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Мои задачи</title>
@@ -15,7 +15,7 @@
     <ul>
         {% for task in tasks %}
             <li>
-                {{ task.title }} -
+                <a href="{%url 'task_detail' task.id %}">{{task.title}}</a> -
                 {% if task.done %} ✅ Выполнено {% else %} ❌ Не выполнено {% endif %}
                 {% if task.done %}
                     <a href="{% url 'toggle_task' task.id %}">[Ещё не выполнена]</a>
